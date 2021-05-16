@@ -1,31 +1,33 @@
 <template>
-  <section>
-    <base-card>
-      <h2>{{ fullName }}</h2>
-      <h3>Rate: {{ rate }}</h3>
-      <base-badge
-        v-for="area in selectedCoach.areas"
-        :key="area"
-        :type="area"
-        :title="area"
-      />
-      <p>{{ selectedCoach.description }}</p>
-    </base-card>
-  </section>
-  <section>
-    <base-card>
-      <header>
-        <h2>Interested?</h2>
-        <base-button link :to="contactURL">Contact</base-button>
-      </header>
-      <router-view />
-    </base-card>
-  </section>
-  <section>
-    <base-card>
-      <p>{{ selectedCoach.description }}</p>
-    </base-card>
-  </section>
+  <div>
+    <section>
+      <base-card>
+        <h2>{{ fullName }}</h2>
+        <h3>Rate: {{ rate }}</h3>
+        <base-badge
+          v-for="area in selectedCoach.areas"
+          :key="area"
+          :type="area"
+          :title="area"
+        />
+        <p>{{ selectedCoach.description }}</p>
+      </base-card>
+    </section>
+    <section>
+      <base-card>
+        <header>
+          <h2>Interested?</h2>
+          <base-button link :to="contactURL">Contact</base-button>
+        </header>
+        <router-view />
+      </base-card>
+    </section>
+    <section>
+      <base-card>
+        <p>{{ selectedCoach.description }}</p>
+      </base-card>
+    </section>
+  </div>
 </template>
 
 <script>
@@ -64,7 +66,7 @@ export default {
 
 <style scoped>
 h3 {
-    float: right;
-    padding-bottom: 10%;
+  float: right;
+  padding-bottom: 10%;
 }
 </style>

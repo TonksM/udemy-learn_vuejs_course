@@ -1,8 +1,16 @@
 const requestGetters = {
-    getRequestByCoachID: (state) => (id) => {
-        // /console.log("getter",id)
-        return state.coaches.find(c => c.id === id);
+    // getRequestByCoachID: (state, rootGetters) => () => {
+    //      // /console.log("getter",id)
+    //     const coachId = rootGetters.userId;
+    //     return state.coaches.filter(c => c.id === coachId);
+    // },
+    getRequests: (state,_,_2,rootGetters) => {
+        const coachId = rootGetters.userId;
+        return state.requests.filter(req=>req.coachId === coachId);
     },
+    hasRequests: (_, getters) => {
+        return getters.getRequests && getters.getRequests.length > 0;    
+    }
 }
 
 export default requestGetters;

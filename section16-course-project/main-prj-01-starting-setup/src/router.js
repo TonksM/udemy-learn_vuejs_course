@@ -5,6 +5,7 @@ import CoachReg from './pages/coaches/CoachReg.vue';
 import CoachDetails from './pages/coaches/CoachDetails.vue';
 import CoachContact from './pages/requests/ContactCoach.vue';
 import CoachRequests from './pages/requests/RequestsReceived.vue';
+import NotFound from './pages/NotFound.vue'
 
 const router = createRouter({
     history: createWebHistory(),
@@ -20,7 +21,9 @@ const router = createRouter({
                 { path: 'contact', component: CoachContact }
             ]
         },
-        { path: '/requests-received', component: CoachRequests }
+        { path: '/requests-received', component: CoachRequests },
+        { path: '/404', component: NotFound },
+        { path: '/:pathMatch(.*)*', redirect: '/404'}
     ],
     scrollBehavior(_1, _2, savedPosition) {
         if (savedPosition) {
