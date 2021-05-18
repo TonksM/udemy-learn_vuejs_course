@@ -3,7 +3,7 @@ import requestActions from './requests/actions.js';
 import requestGetters from './requests/getters.js';
 
 
-const coaches = {
+const requests = {
     namespaced: true,
     state() {
         return {
@@ -15,4 +15,4 @@ const coaches = {
     getters: requestGetters,
 }
 
-export default coaches;
+export default requests;

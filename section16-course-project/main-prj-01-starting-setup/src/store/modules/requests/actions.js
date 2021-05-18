@@ -24,8 +24,9 @@ const requestActions = {
     }, 
     async fetchRequests(context){
         const coachId = context.rootGetters.userId;
+        const token = context.rootGetters.token;
 
-        const response = await fetch(`https://vue-https-demo-e4c37-default-rtdb.firebaseio.com/requests/${coachId}.json`);
+        const response = await fetch(`https://vue-https-demo-e4c37-default-rtdb.firebaseio.com/requests/${coachId}.json?auth=${token}`);
 
         const responseData = await response.json();
 

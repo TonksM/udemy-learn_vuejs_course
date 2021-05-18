@@ -20,9 +20,10 @@
           <base-button mode="outline" @click="loadCoaches(true)"
             >Refresh</base-button
           >
-          <base-button v-if="!isCoach && !isLoading" link to="/coach/register"
+          <base-button v-if="!isCoach && !isLoading && isLoggedIn" link to="/coach/register"
             >Register as Coach</base-button
           >
+          <base-button v-if="!isLoggedIn" link to="/auth?redirect=coach/register">Login to register as a coach</base-button>
         </div>
         <div v-if="isLoading">
           <base-spinner />
@@ -68,6 +69,9 @@ export default {
       hasCoaches: 'hasCoaches',
       isCoach: 'isCoach',
     }),
+    isLoggedIn() {
+      return this.$store.getters.isAuth;
+    },
     loadingCoaches() {
       return !this.isLoading && this.hasCoaches;
     },
